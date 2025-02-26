@@ -1,0 +1,22 @@
+Home Page
+Войти   //a[@href="https://knigorai.com/login"]
+
+
+LoginPage
+
+Registration      //a[@href="https://knigorai.com/register"]
+
+
+
+RegistrationPage
+
+Name //input[@id="name"]
+Email //input[@id="email"]
+Password //input[@id="password"]
+Confirm Password //input[@id="password-confirm"]
+Gender male //span[@class="switch-button-label on"]     female //span[@class="switch-button-label off"]
+Registration //button[@class="btn btn-primary"]
+
+after click on Registration button we will be redirected to the Login Page
+
+After login we can see a icon //img[@class="profile-image"] and a name with drop-down

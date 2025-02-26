@@ -1,0 +1,31 @@
+T001 ValidInvalidLogIn
+*  open home page
+*  click on EnterButton on Home Page
+*  redirect to Login Page
+*  enter email
+*  enter password
+*  click on Login button
+*  redirect to Home Page
+*  LoginIcon is visible
+*  EnterButton is not visible
+
+Dates:
+Valid info: login: scatterqa@gmail.com, password: white2233
+Invalid info: login: ddd, password: 123
+
+
+
+
+T002 validEnterLogiIn
+
+*  no enter in Email field
+*  enter password
+
+Expected result:
+Поле e-mail обязательно для заполнения.
+Поле Пароль обязательно для заполнения.
+
+* enter email ddd
+* enter password 123
+
+Expected result: pop-up with message.

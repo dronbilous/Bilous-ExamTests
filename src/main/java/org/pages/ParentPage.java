@@ -8,4 +8,8 @@ public class ParentPage extends CommonActionsWithElement {
         super(webDriver);
     }
 
+    protected String baseUrl = "https://knigorai.com/";
+
+
+
 }
