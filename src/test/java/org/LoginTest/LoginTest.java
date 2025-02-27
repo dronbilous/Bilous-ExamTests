@@ -5,7 +5,14 @@ import org.junit.Test;
 
 public class LoginTest extends BaseTest {
     @Test
-    public void T0001_invalid_ValidLogin() {
+    public void T0001_ValidLogin() {
+        pageProvider.getHomePage()
+                .openHomePage()
+                .clickOnEnterButton()
+                .enterTextIntoInputEmail("scatterqa@gmail.com")
+                .enterTextIntoInputPassword("white2233")
+                .clickOnButtonSignIn();
+
 
     }
 }

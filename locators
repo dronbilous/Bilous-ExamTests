@@ -1,8 +1,9 @@
 Home Page
-Войти   //a[@href="https://knigorai.com/login"]
+Войти   //a[@href='https://knigorai.com/login']
 
 
 LoginPage
+LogInButton(Войти) //button[@class="btn btn-primary"]
 
 Registration      //a[@href="https://knigorai.com/register"]
 
