@@ -22,6 +22,13 @@ public class LoginPage extends ParentPage {
     }
 //    *****************************************************************************************************************
 
+    @Override
+    protected String getRelativeUrl() {return "login";}
+
+    public LoginPage checkIsRedirectOnLoginPage() {
+        checkUrl();
+        return this;
+    }
     public LoginPage enterTextIntoInputEmail(String email) {
         clearAndEnterTextIntoElement(inputEmail, email);
         return this;
@@ -34,5 +41,6 @@ public class LoginPage extends ParentPage {
         clickOnElement(buttonSignIn);
         return new HomePage(webDriver);
     }
+
 
 }

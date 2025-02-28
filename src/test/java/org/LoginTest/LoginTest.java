@@ -9,9 +9,12 @@ public class LoginTest extends BaseTest {
         pageProvider.getHomePage()
                 .openHomePage()
                 .clickOnEnterButton()
+                .checkIsRedirectOnLoginPage()
                 .enterTextIntoInputEmail("scatterqa@gmail.com")
                 .enterTextIntoInputPassword("white2233")
-                .clickOnButtonSignIn();
+                .clickOnButtonSignIn()
+                .checkIsRedirectOnHomePage();
+
 
 
     }

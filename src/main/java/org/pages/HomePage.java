@@ -17,7 +17,13 @@ public class HomePage extends ParentPage {
         super(webDriver);
     }
 //    ***********************************************  Methods  *******************************************************
+    @Override
+    protected String getRelativeUrl() {return "";}
 
+    public HomePage checkIsRedirectOnHomePage() {
+        checkUrl();
+        return this;
+    }
     public LoginPage clickOnEnterButton() {
         clickOnElement(enterButton);
         return new LoginPage(webDriver);
