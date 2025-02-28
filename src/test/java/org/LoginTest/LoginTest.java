@@ -13,9 +13,7 @@ public class LoginTest extends BaseTest {
                 .enterTextIntoInputEmail("scatterqa@gmail.com")
                 .enterTextIntoInputPassword("white2233")
                 .clickOnButtonSignIn()
-                .checkIsRedirectOnHomePage();
-
-
-
+                .checkIsRedirectOnHomePage()
+                .checkIsIconLogInVisible();
     }
 }

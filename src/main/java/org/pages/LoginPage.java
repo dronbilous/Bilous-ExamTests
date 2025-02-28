@@ -11,7 +11,7 @@ public class LoginPage extends ParentPage {
 //    ************************************************ find elements *********************************************
     @FindBy(xpath = "//input[@id='email']")
     private WebElement inputEmail;
-    @FindBy(xpath = "//input[@id=\'password\']")
+    @FindBy(xpath = "//input[@id='password']")
     private WebElement inputPassword;
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     private WebElement buttonSignIn;
@@ -22,6 +22,7 @@ public class LoginPage extends ParentPage {
     }
 //    *****************************************************************************************************************
 
+//    ***********************************************  Methods  *******************************************************
     @Override
     protected String getRelativeUrl() {return "login";}
 
@@ -41,6 +42,5 @@ public class LoginPage extends ParentPage {
         clickOnElement(buttonSignIn);
         return new HomePage(webDriver);
     }
-
 
 }

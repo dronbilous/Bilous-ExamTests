@@ -1,6 +1,7 @@
 package org.pages;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,8 @@ public class HomePage extends ParentPage {
 //    ************************************************ find elements *********************************************
     @FindBy(xpath = "//a[@href='https://knigorai.com/login']")
     private WebElement enterButton;
+    @FindBy(xpath = "//img[@class='profile-image']")
+    private WebElement iconLogIn;
 
 //    ************************************************ Constructor ****************************************************
     public HomePage(WebDriver webDriver) {
@@ -33,5 +36,9 @@ public class HomePage extends ParentPage {
         logger.info("Home Page was opened with url " + baseUrl);
         return this;
     }
+    public void checkIsIconLogInVisible() {
+        checkIsElementVisible(iconLogIn);
+    }
+
 
 }

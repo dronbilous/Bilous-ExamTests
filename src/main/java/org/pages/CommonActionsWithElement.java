@@ -40,16 +40,11 @@ public class CommonActionsWithElement {
             printErrorAndStopTest(e);
         }
     }
+    protected void checkIsElementVisible(WebElement webElement) {
+        Assert.assertTrue("Element is not visible", isElementVisible(webElement));
+    }
 
-
-
-
-
-
-
-
-
-//    ************************************************** private methods **************************************************
+//    ************************************************** private methods ********************************************
     private String getElementName(WebElement webElement) {
         String elementName;
         try {
@@ -62,5 +57,19 @@ public class CommonActionsWithElement {
     private void printErrorAndStopTest(Exception e) {
         logger.error("Can not work with element " + e);
         Assert.fail("Can not work with element " + e);
+    }
+    protected boolean isElementVisible(WebElement webElement) {
+        try {
+            boolean state = webElement.isDisplayed();
+            if (state) {
+                logger.info(getElementName(webElement) + "Element is displayed");
+            } else {
+                logger.info(getElementName(webElement) + "Element is not displayed");
+            }
+            return state;
+        } catch (Exception e) {
+            logger.info("Element  is not found");
+            return false;
+        }
     }
 }
