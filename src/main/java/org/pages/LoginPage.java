@@ -15,6 +15,10 @@ public class LoginPage extends ParentPage {
     private WebElement inputPassword;
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     private WebElement buttonSignIn;
+    @FindBy(xpath = "//strong[text()='Поле e-mail обязательно для заполнения.']")
+    private WebElement warningMessageEmail;
+    @FindBy(xpath = "//strong[text()='Поле Пароль обязательно для заполнения.']")
+    private WebElement warningMessagePassword;
 
 //    ************************************************ Constructor ****************************************************
     public LoginPage(WebDriver webDriver) {
@@ -41,6 +45,16 @@ public class LoginPage extends ParentPage {
     public HomePage clickOnButtonSignIn() {
         clickOnElement(buttonSignIn);
         return new HomePage(webDriver);
+    }
+    public LoginPage checkIsWarningMessageEmailVisible() {
+        checkIsElementVisible(warningMessageEmail);
+        checkTextInElement(warningMessageEmail, "Поле e-mail обязательно для заполнения.");
+        return this;
+    }
+    public LoginPage checkIsWarningMessagePasswordVisible() {
+        checkIsElementVisible(warningMessagePassword);
+        checkTextInElement(warningMessagePassword, "Поле Пароль обязательно для заполнения.");
+        return this;
     }
 
 }

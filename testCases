@@ -1,4 +1,4 @@
-T001 ValidInvalidLogIn
+T001 validLogIn
 *  open home page
 *  click on EnterButton on Home Page
 *  redirect to Login Page
@@ -11,21 +11,55 @@ T001 ValidInvalidLogIn
 
 Dates:
 Valid info: login: scatterqa@gmail.com, password: white2233
-Invalid info: login: ddd, password: 123
+
+********************************************************************************************
+
+T002 emptyLogiIn
+
+a) empty email; empty password
+
+*********************************************************************************************
+T003 invalidLogIn (Parameters)
+
+a) enterEmail: ddd; enterPassword: 123
+Expecred result - pop-up with message
+
+b) enterEmail: ddd@; enterPassword: 123
+Expecred result - pop-up with message enter text after @
+
+c) enterEmail: scatterqa@gmail.com; enterPassword: 123
+Expecred result - message: Неверние данние для входа; and cleared field Password
+
+
+********************************************************************************************
 
 
 
 
-T002 validEnterLogiIn
 
-*  no enter in Email field
-*  enter password
 
-Expected result:
-Поле e-mail обязательно для заполнения.
-Поле Пароль обязательно для заполнения.
 
-* enter email ddd
-* enter password 123
 
-Expected result: pop-up with message.
+
+
+
+#001 Test valid login
+
+Precondition:
+Register the user with unique name (drbilous + [date_time]; mail: bilous01@mail.com; parole: 1234567891011)
+
+Steps:
+1. Open login page https://aqa-complexapp.onrender.com/.
+2. Input login user in Username
+3. Input password to Password
+4. Click to SignIn button
+
+Expected result
+
+1.  Check the log in user:
+-  avatar is visible on the page
+-  login on the right side from avatar should be visible and equal login
+-  button Sign in is unvisible
+
+Post-condition
+1.  Delete the user
