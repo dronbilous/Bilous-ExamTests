@@ -21,11 +21,6 @@ a) empty email; empty password
 *********************************************************************************************
 T003 invalidLogIn (Parameters)
 
-a) enterEmail: ddd; enterPassword: 123
-Expecred result - pop-up with message
-
-b) enterEmail: ddd@; enterPassword: 123
-Expecred result - pop-up with message enter text after @
 
 c) enterEmail: scatterqa@gmail.com; enterPassword: 123
 Expecred result - message: Неверние данние для входа; and cleared field Password

@@ -19,6 +19,8 @@ public class LoginPage extends ParentPage {
     private WebElement warningMessageEmail;
     @FindBy(xpath = "//strong[text()='Поле Пароль обязательно для заполнения.']")
     private WebElement warningMessagePassword;
+    @FindBy(xpath = "//strong")
+    private WebElement warningInputMessage;
 
 //    ************************************************ Constructor ****************************************************
     public LoginPage(WebDriver webDriver) {
@@ -54,6 +56,11 @@ public class LoginPage extends ParentPage {
     public LoginPage checkIsWarningMessagePasswordVisible() {
         checkIsElementVisible(warningMessagePassword);
         checkTextInElement(warningMessagePassword, "Поле Пароль обязательно для заполнения.");
+        return this;
+    }
+    public LoginPage checkIsWarningMessageInputVisible() {
+        checkIsElementVisible(warningInputMessage);
+        checkTextInElement(warningInputMessage, "Неверные данные для входа.");
         return this;
     }
 
