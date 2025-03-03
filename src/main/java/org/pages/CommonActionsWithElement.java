@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
@@ -50,6 +51,16 @@ public class CommonActionsWithElement {
     protected void checkTextInElement(WebElement webElement, String text) {
         Assert.assertEquals("Text in element " + getElementName(webElement) +" not expected", text, webElement.getText());
         logger.info("Text in element " + getElementName(webElement) + " is expected");
+    }
+    // method for select value in dropdown
+    protected void selectValueInDD(WebElement dropDownElement, String valueForSelect) {
+        try {
+            Select optionsFromDD = new Select(dropDownElement);
+            optionsFromDD.selectByValue(valueForSelect);
+            logger.info(valueForSelect + " value was selected in DropDown " + getElementName(dropDownElement));
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 
 

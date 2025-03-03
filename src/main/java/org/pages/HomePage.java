@@ -13,6 +13,10 @@ public class HomePage extends ParentPage {
     private WebElement enterButton;
     @FindBy(xpath = "//img[@class='profile-image']")
     private WebElement iconLogIn;
+    @FindBy(xpath = "//a[@href='https://knigorai.com/logout']")
+    private WebElement logOutButton;
+    @FindBy(xpath = "//a[@data-toggle='dropdown']")
+    private WebElement dropDownMenu;
 
 //    ************************************************ Constructor ****************************************************
     public HomePage(WebDriver webDriver) {
@@ -30,6 +34,13 @@ public class HomePage extends ParentPage {
         clickOnElement(enterButton);
         return new LoginPage(webDriver);
     }
+    public HomePage clickOnDropDownMenu() {
+        clickOnElement(dropDownMenu);
+        return this;
+    }
+    public void clickOnLogOutButton() {
+        clickOnElement(logOutButton);
+    }
     public HomePage openHomePage() {
         webDriver.get(baseUrl);
         logger.info("Home Page was opened with url " + baseUrl);
@@ -41,6 +52,12 @@ public class HomePage extends ParentPage {
     public void checkIsIconLogInNotVisible() {
         checkIsElementNotVisible(iconLogIn);
     }
+    public void checkIsEnterButtonVisible() {
+        checkIsElementVisible(enterButton);
+    }
+//    public void selectValueInDropdownAccess(String valueForSelect) {
+//        selectValueInDD(dropDownMenu, valueForSelect);
+//    }
 
 
 
