@@ -3,6 +3,9 @@ package org.LoginTest;
 import org.BaseTest.BaseTest;
 import org.junit.Test;
 
+import static org.testData.TestData.VALID_LOGIN;
+import static org.testData.TestData.VALID_PASSWORD;
+
 public class ExitLogIn extends BaseTest {
     @Test
     public void T0004_exitLogIn() {
@@ -10,8 +13,8 @@ public class ExitLogIn extends BaseTest {
                 .openHomePage()
                 .clickOnEnterButton()
                 .checkIsRedirectOnLoginPage()
-                .enterTextIntoInputEmail("scatterqa@gmail.com")
-                .enterTextIntoInputPassword("white2233")
+                .enterTextIntoInputEmail(VALID_LOGIN)
+                .enterTextIntoInputPassword(VALID_PASSWORD)
                 .clickOnButtonSignIn()
                 .checkIsRedirectOnHomePage()
                 .checkIsIconLogInVisible();
