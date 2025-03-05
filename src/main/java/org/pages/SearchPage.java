@@ -25,9 +25,12 @@ public class SearchPage extends ParentPage{
     }
     public SearchPage checkTitleOfSearchIsVisible(String text) {
         checkIsElementVisible(String.format(locatorForBookTitle, text));
+        return this;
+    }
+    public String getIdBook(String text) {
         String idBook = extractAttributeNumberFromElement(String.format(locatorForBookTitle, text), "href");
         System.out.println(idBook);
-        return this;
+        return idBook;
     }
     public void clickOnBookTitle(String text) {
         clickOnElement(String.format(locatorForBookTitle, text));

@@ -16,5 +16,7 @@ public class PageProvider {
 
     public HeaderSearchInputCategories getHeaderSearchInputCategories() {return new HeaderSearchInputCategories(webDriver);}
 
+    public SearchPage getSearchPage() {return new SearchPage(webDriver);}
+
 
 }

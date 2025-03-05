@@ -15,7 +15,8 @@ public class SearchBookTest extends BaseTest {
                 .clickOnButtonSearch()
                 .checkIsRedirectOnSearchPage()
                 .checkTitleOfSearchIsVisible(TEST_BOOK)
-                .clickOnBookTitle(TEST_BOOK);
+                .getIdBook(TEST_BOOK);
+        pageProvider.getSearchPage().clickOnBookTitle(TEST_BOOK);
 
 
 
