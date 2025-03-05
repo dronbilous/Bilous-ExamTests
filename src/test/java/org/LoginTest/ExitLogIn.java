@@ -10,20 +10,17 @@ public class ExitLogIn extends BaseTest {
     @Test
     public void T0004_exitLogIn() {
         pageProvider.getHomePage()
-                .openHomePage()
-                .clickOnEnterButton()
+                .openHomePage();
+        pageProvider.getHeaderSearchInputCategories().clickOnEnterButton()
                 .checkIsRedirectOnLoginPage()
                 .enterTextIntoInputEmail(VALID_LOGIN)
                 .enterTextIntoInputPassword(VALID_PASSWORD)
                 .clickOnButtonSignIn()
-                .checkIsRedirectOnHomePage()
-                .checkIsIconLogInVisible();
-        pageProvider.getHomePage()
+                .checkIsRedirectOnHomePage();
+        pageProvider.getHeaderSearchInputCategories().checkIsIconLogInVisible();
+        pageProvider.getHeaderSearchInputCategories()
                 .clickOnDropDownMenu()
                 .clickOnLogOutButton();
-        pageProvider.getHomePage()
-                .checkIsIconLogInNotVisible();
-        pageProvider.getHomePage()
-                .checkIsEnterButtonVisible();
+        pageProvider.getHeaderSearchInputCategories().checkIsEnterButtonVisible();
     }
 }

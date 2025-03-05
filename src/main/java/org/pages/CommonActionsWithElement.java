@@ -2,13 +2,18 @@ package org.pages;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.time.Instant;
 
 public class CommonActionsWithElement {
     protected WebDriver webDriver;
@@ -41,9 +46,24 @@ public class CommonActionsWithElement {
             printErrorAndStopTest(e);
         }
     }
+    protected void clickOnElement(String locator) {
+        try {
+            WebElement element = webDriver.findElement(By.xpath(locator));
+            webDriverWait_5.until(ExpectedConditions.elementToBeClickable(element));
+            element.click();
+            logger.info("Element with locator " + locator + " was clicked");
+        } catch (Exception e) {
+            logger.error("Cannot work with element with locator " + locator);
+            printErrorAndStopTest(e);
+        }
+    }
     protected void checkIsElementVisible(WebElement webElement) {
         Assert.assertTrue("Element is not visible", isElementVisible(webElement));
     }
+    protected void checkIsElementVisible(String locator) {
+        Assert.assertTrue("Element is not visible with locator " + locator, isElementVisible(locator));
+    }
+
     protected void checkIsElementNotVisible(WebElement webElement) {
         Assert.assertFalse("Element is visible", isElementVisible(webElement));
     }
@@ -61,6 +81,22 @@ public class CommonActionsWithElement {
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
+    }
+
+    // method for transforming string to UTF-8
+    public static String stringTransformerInUT8(String name){
+        byte[] utf8Bytes = name.getBytes(StandardCharsets.UTF_8);
+        String utf8String = URLEncoder.encode(name, StandardCharsets.UTF_8);
+        String output = utf8String.replace(" ", "+");
+        return output;
+    }
+    // method which extract number from attribute of element
+    public String extractAttributeNumberFromElement(String locator, String attribute) {
+        WebElement element = webDriver.findElement(By.xpath(locator));
+        String atribut = element.getAttribute(attribute);
+        String number = atribut.replaceAll("\\D+", ""); // Extract numeric part
+        System.out.println("Extracted number: " + number);
+        return number;
     }
 
 
@@ -89,6 +125,14 @@ public class CommonActionsWithElement {
             return state;
         } catch (Exception e) {
             logger.info("Element  is not found");
+            return false;
+        }
+    }
+    protected boolean isElementVisible(String locator) {
+        try {
+            return isElementVisible(webDriver.findElement(By.xpath(locator)));
+        } catch (Exception e) {
+            logger.info("Element is not found");
             return false;
         }
     }

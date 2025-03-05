@@ -7,8 +7,8 @@ public class EmptyLogIn extends BaseTest {
     @Test
     public void T0002_emptyLogIn() {
         pageProvider.getHomePage()
-                .openHomePage()
-                .clickOnEnterButton()
+                .openHomePage();
+        pageProvider.getHeaderSearchInputCategories().clickOnEnterButton()
                 .checkIsRedirectOnLoginPage()
                 .clickOnButtonSignIn();
         pageProvider.getLoginPage()

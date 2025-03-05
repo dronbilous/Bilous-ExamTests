@@ -10,13 +10,13 @@ public class LoginTest extends BaseTest {
     @Test
     public void T0001_ValidLogin() {
         pageProvider.getHomePage()
-                .openHomePage()
-                .clickOnEnterButton()
+                .openHomePage();
+        pageProvider.getHeaderSearchInputCategories().clickOnEnterButton()
                 .checkIsRedirectOnLoginPage()
                 .enterTextIntoInputEmail(VALID_LOGIN)
                 .enterTextIntoInputPassword(VALID_PASSWORD)
                 .clickOnButtonSignIn()
-                .checkIsRedirectOnHomePage()
-                .checkIsIconLogInVisible();
+                .checkIsRedirectOnHomePage();
+        pageProvider.getHeaderSearchInputCategories().checkIsIconLogInVisible();
     }
 }

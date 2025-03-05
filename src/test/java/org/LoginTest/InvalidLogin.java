@@ -10,14 +10,13 @@ public class InvalidLogin extends BaseTest {
     @Test
     public void T0003_invalidLogin() {
         pageProvider.getHomePage()
-                .openHomePage()
-                .clickOnEnterButton()
+                .openHomePage();
+        pageProvider.getHeaderSearchInputCategories().clickOnEnterButton()
                 .checkIsRedirectOnLoginPage()
                 .enterTextIntoInputEmail(VALID_LOGIN)
                 .enterTextIntoInputPassword(INVALID_PASSWORD)
                 .clickOnButtonSignIn();
         pageProvider.getLoginPage().checkIsWarningMessageInputVisible();
-        pageProvider.getHomePage()
-                .checkIsIconLogInNotVisible();
+        pageProvider.getHeaderSearchInputCategories().checkIsIconLogInNotVisible();
     }
 }

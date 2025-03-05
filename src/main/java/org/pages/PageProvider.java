@@ -1,5 +1,6 @@
 package org.pages;
 
+import org.blocks.HeaderSearchInputCategories;
 import org.openqa.selenium.WebDriver;
 
 public class PageProvider {
@@ -12,6 +13,8 @@ public class PageProvider {
     public LoginPage getLoginPage() {return new LoginPage(webDriver);}
 
     public HomePage getHomePage() {return new HomePage(webDriver);}
+
+    public HeaderSearchInputCategories getHeaderSearchInputCategories() {return new HeaderSearchInputCategories(webDriver);}
 
 
 }

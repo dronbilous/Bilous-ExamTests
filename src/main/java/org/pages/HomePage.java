@@ -9,14 +9,8 @@ public class HomePage extends ParentPage {
     private Logger logger = Logger.getLogger(getClass());
 
 //    ************************************************ find elements *********************************************
-    @FindBy(xpath = "//a[@href='https://knigorai.com/login']")
-    private WebElement enterButton;
-    @FindBy(xpath = "//img[@class='profile-image']")
-    private WebElement iconLogIn;
-    @FindBy(xpath = "//a[@href='https://knigorai.com/logout']")
-    private WebElement logOutButton;
-    @FindBy(xpath = "//a[@data-toggle='dropdown']")
-    private WebElement dropDownMenu;
+
+
 
 //    ************************************************ Constructor ****************************************************
     public HomePage(WebDriver webDriver) {
@@ -30,34 +24,17 @@ public class HomePage extends ParentPage {
         checkUrl();
         return this;
     }
-    public LoginPage clickOnEnterButton() {
-        clickOnElement(enterButton);
-        return new LoginPage(webDriver);
-    }
-    public HomePage clickOnDropDownMenu() {
-        clickOnElement(dropDownMenu);
-        return this;
-    }
-    public void clickOnLogOutButton() {
-        clickOnElement(logOutButton);
-    }
+
+
+
+
     public HomePage openHomePage() {
         webDriver.get(baseUrl);
         logger.info("Home Page was opened with url " + baseUrl);
         return this;
     }
-    public void checkIsIconLogInVisible() {
-        checkIsElementVisible(iconLogIn);
-    }
-    public void checkIsIconLogInNotVisible() {
-        checkIsElementNotVisible(iconLogIn);
-    }
-    public void checkIsEnterButtonVisible() {
-        checkIsElementVisible(enterButton);
-    }
-//    public void selectValueInDropdownAccess(String valueForSelect) {
-//        selectValueInDD(dropDownMenu, valueForSelect);
-//    }
+
+
 
 
 
