@@ -1,6 +1,7 @@
 package org.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.testData.TestData;
 
 import static org.testData.TestData.TEST_BOOK;
 
@@ -30,13 +31,13 @@ public class SearchPage extends ParentPage{
     public String getIdBook(String text) {
         String idBook = extractAttributeNumberFromElement(String.format(locatorForBookTitle, text), "href");
         System.out.println(idBook);
+        TestData.testDataMap.put("idBook", idBook);
         return idBook;
     }
-    public void clickOnBookTitle(String text) {
+    public CurrentBookPage clickOnBookTitle(String text) {
         clickOnElement(String.format(locatorForBookTitle, text));
+        return new CurrentBookPage(webDriver);
     }
-
-
 
     private static String makeURL() {
         String paramURL = stringTransformerInUT8(bookForSearch);

@@ -7,13 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
-import java.time.Instant;
 
 public class CommonActionsWithElement {
     protected WebDriver webDriver;
@@ -72,16 +70,16 @@ public class CommonActionsWithElement {
         Assert.assertEquals("Text in element " + getElementName(webElement) +" not expected", text, webElement.getText());
         logger.info("Text in element " + getElementName(webElement) + " is expected");
     }
-    // method for select value in dropdown
-    protected void selectValueInDD(WebElement dropDownElement, String valueForSelect) {
-        try {
-            Select optionsFromDD = new Select(dropDownElement);
-            optionsFromDD.selectByValue(valueForSelect);
-            logger.info(valueForSelect + " value was selected in DropDown " + getElementName(dropDownElement));
-        } catch (Exception e) {
-            printErrorAndStopTest(e);
-        }
-    }
+//    // method for select value in dropdown
+//    protected void selectValueInDD(WebElement dropDownElement, String valueForSelect) {
+//        try {
+//            Select optionsFromDD = new Select(dropDownElement);
+//            optionsFromDD.selectByValue(valueForSelect);
+//            logger.info(valueForSelect + " value was selected in DropDown " + getElementName(dropDownElement));
+//        } catch (Exception e) {
+//            printErrorAndStopTest(e);
+//        }
+//    }
 
     // method for transforming string to UTF-8
     public static String stringTransformerInUT8(String name){
