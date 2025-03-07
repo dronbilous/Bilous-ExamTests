@@ -16,6 +16,7 @@ public class CurrentBookPage extends ParentPage{
     protected String getRelativeUrl() {
         return "";
     }
+
     public CurrentBookPage checkIsElementVisible() {
         checkIsElementVisible(bookTitle);
         return this;

@@ -70,16 +70,6 @@ public class CommonActionsWithElement {
         Assert.assertEquals("Text in element " + getElementName(webElement) +" not expected", text, webElement.getText());
         logger.info("Text in element " + getElementName(webElement) + " is expected");
     }
-//    // method for select value in dropdown
-//    protected void selectValueInDD(WebElement dropDownElement, String valueForSelect) {
-//        try {
-//            Select optionsFromDD = new Select(dropDownElement);
-//            optionsFromDD.selectByValue(valueForSelect);
-//            logger.info(valueForSelect + " value was selected in DropDown " + getElementName(dropDownElement));
-//        } catch (Exception e) {
-//            printErrorAndStopTest(e);
-//        }
-//    }
 
     // method for transforming string to UTF-8
     public static String stringTransformerInUT8(String name){
@@ -88,14 +78,14 @@ public class CommonActionsWithElement {
         String output = utf8String.replace(" ", "+");
         return output;
     }
-    // method which extract number from attribute of element
-    public String extractAttributeNumberFromElement(String locator, String attribute) {
-        WebElement element = webDriver.findElement(By.xpath(locator));
-        String atribut = element.getAttribute(attribute);
-        String number = atribut.replaceAll("\\D+", ""); // Extract numeric part
-        System.out.println("Extracted number: " + number);
-        return number;
-    }
+//    // method which extract number from attribute of element
+//    public String extractAttributeNumberFromElement(String locator, String attribute) {
+//        WebElement element = webDriver.findElement(By.xpath(locator));
+//        String atribut = element.getAttribute(attribute);
+//        String number = atribut.replaceAll("\\D+", ""); // Extract numeric part
+//        System.out.println("Extracted number: " + number);
+//        return number;
+//    }
 
 
 //    ************************************************** private methods ********************************************
