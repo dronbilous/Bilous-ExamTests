@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 public class CurrentBookPage extends ParentPage{
     @FindBy(xpath = "//h1")
     private WebElement bookTitle;
+    @FindBy(xpath = "//pjsdiv[@id='oframeplayer']")
+    private WebElement player;
 
     public CurrentBookPage(WebDriver webDriver) {
         super(webDriver);
@@ -16,6 +18,7 @@ public class CurrentBookPage extends ParentPage{
     protected String getRelativeUrl() {
         return "";
     }
+
     public CurrentBookPage checkIsElementVisible() {
         checkIsElementVisible(bookTitle);
         return this;
@@ -27,6 +30,10 @@ public class CurrentBookPage extends ParentPage{
         } else {
             System.out.println("Titles are not equal");
         }
+        return this;
+    }
+    public CurrentBookPage checkIsPlayerVisible() {
+        checkIsElementVisible(player);
         return this;
     }
 
