@@ -49,12 +49,10 @@ public class LoginPage extends ParentPage {
         return new HomePage(webDriver);
     }
     public LoginPage checkIsWarningMessageEmailVisible() {
-        checkIsElementVisible(warningMessageEmail);
         checkTextInElement(warningMessageEmail, "Поле e-mail обязательно для заполнения.");
         return this;
     }
     public LoginPage checkIsWarningMessagePasswordVisible() {
-        checkIsElementVisible(warningMessagePassword);
         checkTextInElement(warningMessagePassword, "Поле Пароль обязательно для заполнения.");
         return this;
     }

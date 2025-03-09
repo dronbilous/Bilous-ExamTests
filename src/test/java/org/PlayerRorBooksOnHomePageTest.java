@@ -12,7 +12,7 @@ public class PlayerRorBooksOnHomePageTest extends BaseTest {
         pageProvider.getHomePage()
                 .openHomePage()
                 .clickOnBookForNumber(NUMBER_BOOK_ON_HP)
-                .compareTitle(testDataMap.get("Title"))
+                .checkIsTitleEqualToExpected(testDataMap.get("Title"))
                 .checkIsPlayerVisible();
     }
 }
