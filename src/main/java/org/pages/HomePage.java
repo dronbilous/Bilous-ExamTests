@@ -11,40 +11,43 @@ import java.util.List;
 public class HomePage extends ParentPage {
     private Logger logger = Logger.getLogger(getClass());
 
-//    ************************************************ find elements *********************************************
-     @FindBy(xpath = "//a[@class='book-title']")
-     private List<WebElement> bookTitlesOnHomePage;
+    //    ************************************************ find elements *********************************************
+    @FindBy(xpath = "//a[@class='book-title']")
+    private List<WebElement> bookTitlesOnHomePage;
 
-//    ************************************************ Constructor ****************************************************
+    //    ************************************************ Constructor ****************************************************
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
-//    ***********************************************  Methods  *******************************************************
+
+    //    ***********************************************  Methods  *******************************************************
     @Override
-    protected String getRelativeUrl() {return "";}
+    protected String getRelativeUrl() {
+        return "";
+    }
 
     public HomePage checkIsRedirectOnHomePage() {
         checkUrl();
         return this;
     }
+
     public HomePage openHomePage() {
         webDriver.get(baseUrl);
         logger.info("Home Page was opened with url " + baseUrl);
         return this;
     }
+
     public CurrentBookPage clickOnBookForNumber(int number) {
         receiveBookTitle(number);
         clickOnElement(bookTitlesOnHomePage.get(number));
         return new CurrentBookPage(webDriver);
     }
+
     public void receiveBookTitle(int number) {
         String bookTitle = bookTitlesOnHomePage.get(number).getAttribute("title");
         String selectedBookTitle = bookTitle.replace("Слушать аудиокнигу", "").trim();
         TestData.testDataMap.put("Title", selectedBookTitle);
     }
-
-
-
 
 
 }
