@@ -15,9 +15,9 @@ public class LoginPage extends ParentPage {
     private WebElement inputPassword;
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     private WebElement buttonSignIn;
-    @FindBy(xpath = "//strong[text()='Поле e-mail обязательно для заполнения.']")
+    @FindBy(xpath = "//*[@id=\"email\"]//..//*[@class=\"help-block\"]//strong")
     private WebElement warningMessageEmail;
-    @FindBy(xpath = "//strong[text()='Поле Пароль обязательно для заполнения.']")
+    @FindBy(xpath = "//*[@id=\"password\"]//..//*[@class=\"help-block\"]//strong")
     private WebElement warningMessagePassword;
     @FindBy(xpath = "//strong")
     private WebElement warningInputMessage;
@@ -61,5 +61,4 @@ public class LoginPage extends ParentPage {
         checkTextInElement(warningInputMessage, "Неверные данные для входа.");
         return this;
     }
-
 }
